@@ -1,0 +1,13 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<h4 style="text-align: center;">All Entries:</h4>
+<div class="entry-list">
+    {% for entry in entries %}
+        <article>
+            <h2><a href="{{ url_for('detail', entry_id=entry.id) }}">{{ entry.title }}</a></h2>
+            <time data-time="{{ entry.date }}" class="distime" datetime="{{ entry.date.strftime('%Y-%m-%d') }}">{{ entry.date.strftime('%Y-%m-%d') }}</time>
+        </article>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% from "macros.html" import render_field %}
+
+{% block content %}
+<div class="container">
+    <div class="new-entry">
+        <h2>New Entry</h2>
+        <form method="POST" action="">
+          {{ form.hidden_tag() }}
+          {{ form.title.label }}
+          {{ form.title(type="text") }}<br>
+          {{ form.date.label }}
+          {{ form.date(type="date") }}<br>
+          {{ form.time_spent.label }}
+          {{ form.time_spent(type="text") }}<br>
+          {{ form.what_i_learned.label }}
+          {{ form.what_i_learned(type="textarea", rows="7") }}<br>
+          {{ form.resources_to_remember.label }}
+          {{ form.resources_to_remember(type="textarea", rows="7") }}<br>
+            <input type="submit" value="Publish Entry" class="button">
+            <a href="{{ url_for('index') }}" class="button button-secondary">Cancel</a>
+        </form>
+    </div>
+</div>
+{% endblock %}
